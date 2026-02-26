@@ -1,5 +1,6 @@
 package com.example.moneymanager.service;
 
+import com.example.moneymanager.dto.RegisterRequest;
 import com.example.moneymanager.model.User;
 import com.example.moneymanager.repository.UserRepository;
 import com.example.moneymanager.security.JwtUtil;
@@ -15,7 +16,7 @@ import java.util.UUID;
 public class UserService {
 
     @Autowired
-    private UserRepository repo;
+    private UserRepository userRepository;
 
     @Autowired
     private EmailService emailService;
@@ -27,38 +28,45 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
-    public String register(User user) {
+    public String register(RegisterRequest request) {
 
-        if (repo.existsByEmail(user.getEmail()))
-            return "Email already exists";
-
-        user.setPassword(encoder.encode(user.getPassword())); // IMPORTANT
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("Email already registered");
+        }
 
         String token = UUID.randomUUID().toString();
+
+        User user = new User();
+        user.setFullName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        user.setActive(false);
         user.setActivationToken(token);
 
-        repo.save(user);
+        userRepository.save(user);
 
-        return "Registered";
+        emailService.sendVerificationEmail(user.getEmail(), token);
+
+        return "Registration successful. Please check your email to verify.";
     }
 
     // ACTIVATE ACCOUNT
     public String activateAccount(String token) {
 
-        User user = repo.findByActivationToken(token)
+        User user = userRepository.findByActivationToken(token)
                 .orElseThrow(() -> new RuntimeException("Invalid token"));
 
         user.setActive(true);
         user.setActivationToken(null);
 
-        repo.save(user);
+        userRepository.save(user);
 
         return "Account activated successfully";
     }
 
     public String login(String email, String password) {
 
-        Optional<User> optionalUser = repo.findByEmail(email);
+        Optional<User> optionalUser = userRepository.findByEmail(email);
 
         if(optionalUser.isEmpty()) {
             return "Invalid email or password";

@@ -1,6 +1,7 @@
 package com.example.moneymanager.controller;
 
 import com.example.moneymanager.dto.LoginRequest;
+import com.example.moneymanager.dto.RegisterRequest;
 import com.example.moneymanager.model.User;
 import com.example.moneymanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,18 @@ public class AuthController {
 
     // REGISTER
     @PostMapping("/register")
-    public String register(@RequestBody User user) {
-        System.out.println("Full Name = " + user.getFullName());
-        System.out.println("Password = " + user.getPassword());
-        return service.register(user);
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+
+        String response = service.register(request);
+
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/verify")
+    public ResponseEntity<?> verifyEmail(@RequestParam String token) {
+
+        String response = service.activateAccount(token);
+
+        return ResponseEntity.ok(response);
     }
 
     // ACTIVATE ACCOUNT

@@ -103,4 +103,6 @@ public class User {
     public void setActivationToken(String activationToken) {
         this.activationToken = activationToken;
     }
+
+
 }
