@@ -16,14 +16,13 @@ public class EmailService {
     @Value("${spring.mail.properties.mail.smtp.from}")
     private String fromEmail;
 
-    @Value("${server.port}")
-    private String port;
+    @Value("${money.manager.backend.url}")
+    private String backendUrl;
 
     public void sendVerificationEmail(String toEmail, String token) {
 
         String verificationUrl =
-                "http://localhost:" + port +
-                        "/api/v1.0/auth/verify?token=" + token;
+                backendUrl + "/api/v1.0/auth/verify?token=" + token;
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(fromEmail);
@@ -31,6 +30,8 @@ public class EmailService {
         message.setSubject("Verify Your Email - Money Manager");
         message.setText("Click the link to activate your account:\n\n" + verificationUrl);
 
+        System.out.println("Sending verification email to: " + toEmail);
+        System.out.println("Verification link: " + verificationUrl);
         mailSender.send(message);
     }
 }

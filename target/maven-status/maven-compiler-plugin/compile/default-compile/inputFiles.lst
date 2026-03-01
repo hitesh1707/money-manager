@@ -23,6 +23,7 @@ C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneym
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\dto\LoginRequest.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\controller\ExpenseController.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\model\Expense.java
+C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\dto\RegisterRequest.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\model\Category.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\controller\DashboardController.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\dto\TransactionDto.java

@@ -14,6 +14,7 @@ com\example\moneymanager\repository\NotificationRepository.class
 com\example\moneymanager\controller\NotificationController.class
 com\example\moneymanager\service\DashboardService.class
 com\example\moneymanager\controller\TransactionService.class
+com\example\moneymanager\dto\RegisterRequest.class
 com\example\moneymanager\controller\AuthController.class
 com\example\moneymanager\service\CategoryService.class
 com\example\moneymanager\controller\ExpenseController.class

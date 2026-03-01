@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
-@CrossOrigin("*")
+@RequestMapping("/api/v1.0/categories")
+@CrossOrigin(origins = "http://localhost:8080")
 public class CategoryController {
 
     private final CategoryService service;

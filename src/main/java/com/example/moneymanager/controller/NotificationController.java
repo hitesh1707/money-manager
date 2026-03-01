@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/notifications")
-@CrossOrigin("*")
+@RequestMapping("/api/v1.0/notifications")
+@CrossOrigin(origins = "http://localhost:8080")
 public class NotificationController {
 
     private final NotificationService service;

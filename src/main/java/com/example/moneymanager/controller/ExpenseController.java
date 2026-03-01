@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/expenses")
-@CrossOrigin("*")
+@RequestMapping("/api/v1.0/expenses")
+@CrossOrigin(origins = "http://localhost:8080")
 public class ExpenseController {
 
     private final ExpenseService service;

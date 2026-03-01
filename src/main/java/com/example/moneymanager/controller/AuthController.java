@@ -12,8 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/auth")
-@CrossOrigin("*")
+@RequestMapping("/api/v1.0/auth")
+@CrossOrigin(origins = "http://localhost:8080")
 public class AuthController {
 
     @Autowired
@@ -33,12 +33,6 @@ public class AuthController {
         String response = service.activateAccount(token);
 
         return ResponseEntity.ok(response);
-    }
-
-    // ACTIVATE ACCOUNT
-    @GetMapping("/activate")
-    public String activate(@RequestParam String token) {
-        return service.activateAccount(token);
     }
 
     @PostMapping("/login")

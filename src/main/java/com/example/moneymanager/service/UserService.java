@@ -39,7 +39,7 @@ public class UserService {
         User user = new User();
         user.setFullName(request.getName());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(encoder.encode(request.getPassword()));
         user.setActive(false);
         user.setActivationToken(token);
 
@@ -69,7 +69,7 @@ public class UserService {
         Optional<User> optionalUser = userRepository.findByEmail(email);
 
         if(optionalUser.isEmpty()) {
-            return "Invalid email or password";
+            throw new RuntimeException("Invalid email or password");
         }
 
         User user = optionalUser.get();
@@ -84,6 +84,6 @@ public class UserService {
 
     public String upload(MultipartFile file) {
 
-        return null;
+        throw new RuntimeException("File upload not implemented yet");
     }
 }
