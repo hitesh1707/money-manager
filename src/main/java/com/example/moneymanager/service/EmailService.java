@@ -1,5 +1,6 @@
 package com.example.moneymanager.service;
 
+import com.example.moneymanager.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,4 +35,6 @@ public class EmailService {
         System.out.println("Verification link: " + verificationUrl);
         mailSender.send(message);
     }
+
+
 }

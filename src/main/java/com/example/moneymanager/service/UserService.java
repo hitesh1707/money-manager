@@ -45,7 +45,11 @@ public class UserService {
 
         userRepository.save(user);
 
-        emailService.sendVerificationEmail(user.getEmail(), token);
+        try {
+            emailService.sendVerificationEmail(user.getEmail(), token);
+        } catch (Exception e) {
+            System.out.println("Email failed: " + e.getMessage());
+        }
 
         return "Registration successful. Please check your email to verify.";
     }
