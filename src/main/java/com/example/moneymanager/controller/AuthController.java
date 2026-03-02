@@ -12,8 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1.0/auth")
-@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("auth")
+@CrossOrigin("*")
 public class AuthController {
 
     @Autowired

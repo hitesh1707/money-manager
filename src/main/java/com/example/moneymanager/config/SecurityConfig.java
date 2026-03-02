@@ -24,8 +24,6 @@ public class SecurityConfig {
                 // allow auth endpoints
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1.0/auth/**").permitAll()
-                        .requestMatchers("/api/v1.0/dashboard/**").authenticated()
-                        .requestMatchers("/api/v1.0/notifications/**").authenticated()
                         .anyRequest().permitAll()
                 );
 
