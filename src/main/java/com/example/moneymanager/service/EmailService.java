@@ -7,38 +7,36 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 
 @Service
-@RequiredArgsConstructor
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    @Value("${email.enabled:false}")
+    private boolean emailEnabled;
 
-    @Value("${spring.mail.username}")
-    private String fromEmail;
+    @Autowired
+    private JavaMailSender mailSender;
 
-    @Value("${money.manager.backend.url}")
-    private String backendUrl;
+    public void sendVerificationEmail(String email, String token) {
 
-    public void sendVerificationEmail(String toEmail, String token) {
+        if (!emailEnabled) {
+            System.out.println("Email disabled. Verification token: " + token);
+            return;
+        }
 
         try {
-            String verificationUrl = backendUrl+"/api/v1.0/auth/verify?token=" + token;
+            String link = "http://localhost:5173/api/v1.0/auth/verify?token=" + token;
 
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(fromEmail);
-            message.setTo(toEmail);
+            message.setTo(email);
             message.setSubject("Verify your account");
-            message.setText("Click to verify: " + verificationUrl);
+            message.setText("Click to verify: " + link);
 
             mailSender.send(message);
 
-            System.out.println("Email sent successfully");
-
         } catch (Exception e) {
-            System.out.println("Email sending failed inside EmailService: " + e.getMessage());
+            System.out.println("Email failed: " + e.getMessage());
         }
     }
-
-
 }
