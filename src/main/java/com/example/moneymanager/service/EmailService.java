@@ -22,18 +22,22 @@ public class EmailService {
 
     public void sendVerificationEmail(String toEmail, String token) {
 
-        String verificationUrl =
-                backendUrl + "/api/v1.0/auth/verify?token=" + token;
+        try {
+            String verificationUrl = backendUrl+"/api/v1.0/auth/verify?token=" + token;
 
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(fromEmail);
-        message.setTo(toEmail);
-        message.setSubject("Verify Your Email - Money Manager");
-        message.setText("Click the link to activate your account:\n\n" + verificationUrl);
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(fromEmail);
+            message.setTo(toEmail);
+            message.setSubject("Verify your account");
+            message.setText("Click to verify: " + verificationUrl);
 
-        System.out.println("Sending verification email to: " + toEmail);
-        System.out.println("Verification link: " + verificationUrl);
-        mailSender.send(message);
+            mailSender.send(message);
+
+            System.out.println("Email sent successfully");
+
+        } catch (Exception e) {
+            System.out.println("Email sending failed inside EmailService: " + e.getMessage());
+        }
     }
 
 
