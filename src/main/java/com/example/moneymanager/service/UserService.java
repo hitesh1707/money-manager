@@ -18,8 +18,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private EmailService emailService;
+//    @Autowired
+//    private EmailService emailService;
     
     @Autowired
     private JwtUtil jwtUtil;
