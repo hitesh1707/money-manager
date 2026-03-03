@@ -45,13 +45,13 @@ public class UserService {
 
         userRepository.save(user);
 
-        try {
-            emailService.sendVerificationEmail(user.getEmail(), token);
-        } catch (Exception e) {
-            System.out.println("Email failed: " + e.getMessage());
-        }
+//        try {
+//             emailService.sendVerificationEmail(user.getEmail(), token);
+//        } catch (Exception e) {
+//            System.out.println("Email failed: " + e.getMessage());
+//        }
 
-        return "Registration successful. Please check your email to verify.";
+        return "Registration successful. Verification token: " + token;
     }
 
     // ACTIVATE ACCOUNT
