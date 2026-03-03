@@ -51,7 +51,7 @@ public class UserService {
 //            System.out.println("Email failed: " + e.getMessage());
 //        }
 
-        return "Registration successful. Verification token: " + token;
+        return "THIS IS NEW BUILD - token: " + token;
     }
 
     // ACTIVATE ACCOUNT
