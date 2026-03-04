@@ -34,25 +34,22 @@ public class UserService {
             throw new RuntimeException("Email already registered");
         }
 
-        String token = UUID.randomUUID().toString();
-
         User user = new User();
         user.setFullName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(encoder.encode(request.getPassword()));
-        user.setActive(false);
-        user.setActivationToken(token);
+        user.setActive(true);   // FIXED
 
         userRepository.save(user);
+
+        return "Registration successful";
+    }
 
 //        try {
 //             emailService.sendVerificationEmail(user.getEmail(), token);
 //        } catch (Exception e) {
 //            System.out.println("Email failed: " + e.getMessage());
 //        }
-
-        return "THIS IS NEW BUILD - token: " + token;
-    }
 
     // ACTIVATE ACCOUNT
     public String activateAccount(String token) {
