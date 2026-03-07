@@ -52,18 +52,18 @@ public class UserService {
 //        }
 
     // ACTIVATE ACCOUNT
-    public String activateAccount(String token) {
-
-        User user = userRepository.findByActivationToken(token)
-                .orElseThrow(() -> new RuntimeException("Invalid token"));
-
-        user.setActive(true);
-        user.setActivationToken(null);
-
-        userRepository.save(user);
-
-        return "Account activated successfully";
-    }
+//    public String activateAccount(String token) {
+//
+//        User user = userRepository.findByActivationToken(token)
+//                .orElseThrow(() -> new RuntimeException("Invalid token"));
+//
+//        user.setActive(true);
+//        user.setActivationToken(null);
+//
+//        userRepository.save(user);
+//
+//        return "Account activated successfully";
+//    }
 
     public String login(String email, String password) {
 
@@ -74,9 +74,9 @@ public class UserService {
         }
 
         User user = optionalUser.get();
-        if (!user.getActive())
-            throw new RuntimeException("Account not activated");
-
+        if (!Boolean.TRUE.equals(user.getActive())) {
+            throw new RuntimeException("Account not active");
+        }
         if (!encoder.matches(password, user.getPassword()))
             throw new RuntimeException("Invalid password");
 

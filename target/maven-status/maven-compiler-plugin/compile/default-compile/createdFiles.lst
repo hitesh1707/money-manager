@@ -3,6 +3,7 @@ com\example\moneymanager\service\NotificationService.class
 com\example\moneymanager\controller\CategoryController.class
 com\example\moneymanager\service\IncomeService.class
 com\example\moneymanager\model\User.class
+com\example\moneymanager\security\SecurityUtils.class
 com\example\moneymanager\dto\LoginRequest.class
 com\example\moneymanager\dto\TransactionDto.class
 com\example\moneymanager\security\JwtUtil.class
@@ -10,10 +11,12 @@ com\example\moneymanager\dto\DashboardResponse.class
 com\example\moneymanager\repository\UserRepository.class
 com\example\moneymanager\controller\DashboardController.class
 com\example\moneymanager\repository\NotificationRepository.class
+com\example\moneymanager\security\JwtFilter.class
 com\example\moneymanager\controller\NotificationController.class
 com\example\moneymanager\service\DashboardService.class
 com\example\moneymanager\controller\TransactionService.class
 com\example\moneymanager\dto\RegisterRequest.class
+com\example\moneymanager\exception\GlobalExceptionHandler.class
 com\example\moneymanager\controller\AuthController.class
 com\example\moneymanager\service\CategoryService.class
 com\example\moneymanager\controller\ExpenseController.class

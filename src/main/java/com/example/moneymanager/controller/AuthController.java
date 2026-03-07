@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/auth")
 @CrossOrigin("*")
 public class AuthController {
 
@@ -22,22 +22,29 @@ public class AuthController {
     // REGISTER
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
-
-        String response = service.register(request);
-
-        return ResponseEntity.ok(response);
+        try {
+            String response = service.register(request);
+            return ResponseEntity.ok(Map.of("message", response));
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
     }
-    @GetMapping("/verify")
-    public ResponseEntity<?> verifyEmail(@RequestParam String token) {
-
-        String response = service.activateAccount(token);
-
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/verify")
+//    public ResponseEntity<?> verifyEmail(@RequestParam String token) {
+//
+//        String response = service.activateAccount(token);
+//
+//        return ResponseEntity.ok(response);
+//    }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
-        return service.login(request.getEmail(), request.getPassword());
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        try {
+            String token = service.login(request.getEmail(), request.getPassword());
+            return ResponseEntity.ok(Map.of("token", token));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(401).body(Map.of("error", e.getMessage()));
+        }
     }
 
 

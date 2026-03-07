@@ -10,13 +10,10 @@ import java.util.List;
 @Repository
 public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
-    List<Expense> findByDateBetween(LocalDate startDate, LocalDate endDate);
+    List<Expense> findByUserEmail(String userEmail);
 
-    List<Expense> findByCategory_Id(Long categoryId);
-
-    List<Expense> findByDateBetweenAndCategory_Id(
-            LocalDate startDate,
-            LocalDate endDate,
-            Long categoryId
-    );
+    // Update existing filter methods too:
+    List<Expense> findByUserEmailAndDateBetween(String userEmail, LocalDate start, LocalDate end);
+    List<Expense> findByUserEmailAndCategory_Id(String userEmail, Long categoryId);
+    List<Expense> findByUserEmailAndDateBetweenAndCategory_Id(String userEmail, LocalDate start, LocalDate end, Long categoryId);
 }

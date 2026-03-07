@@ -2,14 +2,15 @@ package com.example.moneymanager.controller;
 
 import com.example.moneymanager.model.Expense;
 import com.example.moneymanager.service.ExpenseService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("expenses")
-@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("/expenses")
+@CrossOrigin(origins = "http://localhost:5174")
 public class ExpenseController {
 
     private final ExpenseService service;
@@ -25,5 +26,15 @@ public class ExpenseController {
             @RequestParam(required = false) Long categoryId
     ) {
         return service.filter(startDate, endDate, categoryId);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody Expense expense) {
+        return ResponseEntity.ok(service.create(expense));
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }

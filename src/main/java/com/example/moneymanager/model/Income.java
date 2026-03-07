@@ -22,6 +22,9 @@ public class Income {
 
     private String note;
 
+    @Column(name = "user_email")
+    private String userEmail;
+
     public Long getId() {
         return id;
     }

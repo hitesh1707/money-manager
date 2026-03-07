@@ -23,6 +23,9 @@ public class Expense {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column(name = "user_email")
+    private String userEmail;
+
     public Long getId() {
         return id;
     }
