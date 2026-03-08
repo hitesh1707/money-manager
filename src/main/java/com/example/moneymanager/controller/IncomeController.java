@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/income")
-@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
+@CrossOrigin(origins = "*")
 public class IncomeController {
 
     private final IncomeService service;

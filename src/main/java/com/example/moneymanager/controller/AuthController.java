@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     @Autowired
