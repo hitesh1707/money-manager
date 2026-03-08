@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/income")
+@RequestMapping("/api/v1.0/income")
 @CrossOrigin(origins = "*")
 public class IncomeController {
 

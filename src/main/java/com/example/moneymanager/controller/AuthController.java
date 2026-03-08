@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1.0/auth")
 @CrossOrigin(origins = "*")
 public class AuthController {
 

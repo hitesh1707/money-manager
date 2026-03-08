@@ -5,7 +5,7 @@ import com.example.moneymanager.service.DashboardService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/dashboard")
+@RequestMapping("/api/v1.0/dashboard")
 @CrossOrigin(origins = "*")
 public class DashboardController {
 
