@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/expenses")
-//@CrossOrigin("*")
+@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
 public class ExpenseController {
 
     private final ExpenseService service;

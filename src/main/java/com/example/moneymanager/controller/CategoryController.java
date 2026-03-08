@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
-//@CrossOrigin("*")
+@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
 public class CategoryController {
 
     private final CategoryService service;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dashboard")
-//@CrossOrigin("*")
+@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
 public class DashboardController {
 
     private final DashboardService service;

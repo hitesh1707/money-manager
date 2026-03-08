@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/notifications")
-//@CrossOrigin("*")
+@CrossOrigin(origins = "https://money-manager-react-fawn.vercel.app")
 public class NotificationController {
 
     private final NotificationService service;
