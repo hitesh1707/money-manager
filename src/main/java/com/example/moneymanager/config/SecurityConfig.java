@@ -26,7 +26,7 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> {})   // enable cors
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // enable cors
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
