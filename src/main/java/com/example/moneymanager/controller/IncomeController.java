@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("income")
-@CrossOrigin("*")
+@RequestMapping("/income")
 public class IncomeController {
 
     private final IncomeService service;

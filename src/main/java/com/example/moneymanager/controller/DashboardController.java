@@ -5,8 +5,8 @@ import com.example.moneymanager.service.DashboardService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("dashboard")
-@CrossOrigin("*")
+@RequestMapping("/dashboard")
+//@CrossOrigin("*")
 public class DashboardController {
 
     private final DashboardService service;
