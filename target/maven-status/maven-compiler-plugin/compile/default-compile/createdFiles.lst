@@ -12,6 +12,7 @@ com\example\moneymanager\repository\UserRepository.class
 com\example\moneymanager\controller\DashboardController.class
 com\example\moneymanager\repository\NotificationRepository.class
 com\example\moneymanager\security\JwtFilter.class
+HealthController.class
 com\example\moneymanager\controller\NotificationController.class
 com\example\moneymanager\service\DashboardService.class
 com\example\moneymanager\controller\TransactionService.class
@@ -28,6 +29,7 @@ com\example\moneymanager\model\Income.class
 com\example\moneymanager\repository\CategoryRepository.class
 com\example\moneymanager\config\SecurityBeansConfig.class
 com\example\moneymanager\service\ExpenseService.class
+com\example\moneymanager\config\CorsConfig.class
 com\example\moneymanager\controller\IncomeController.class
 com\example\moneymanager\model\Expense.class
 com\example\moneymanager\repository\ExpenseRepository.class

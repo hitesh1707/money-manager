@@ -7,12 +7,14 @@ C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneym
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\model\Notification.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\repository\CategoryRepository.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\service\CategoryService.java
+C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\config\CorsConfig.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\security\JwtUtil.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\service\DashboardService.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\service\EmailService.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\config\SecurityBeansConfig.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\repository\UserRepository.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\service\NotificationService.java
+C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\controller\HealthController.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\controller\NotificationController.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\security\JwtFilter.java
 C:\Users\PC\Downloads\moneymanager\moneymanager\src\main\java\com\example\moneymanager\config\SecurityConfig.java
