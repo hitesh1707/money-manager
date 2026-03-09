@@ -17,7 +17,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // ✅ Allow all origins
-        config.setAllowedOriginPatterns(List.of("*"));
+        config.setAllowedOrigins(List.of("https://money-manager-react-fawn.vercel.app"));
 
         // ✅ Allow all HTTP methods
         config.setAllowedMethods(List.of(
