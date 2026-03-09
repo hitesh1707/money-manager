@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/expenses")
-@CrossOrigin(origins = "*")
 public class ExpenseController {
 
     private final ExpenseService service;

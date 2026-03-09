@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/income")
-@CrossOrigin(origins = "*")
 public class IncomeController {
 
     private final IncomeService service;
